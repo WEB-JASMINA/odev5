@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ky">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Веб-технология сабагы</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="img.jpeg" alt="Мугалим Касым Барктабасов" id="teacherImage" />
+      <h1>Веб-технология сабагы</h1>
+      <p>Мугалим: Касым Барктабасов</p>
+    </header>
+    <main>
+      <section>
+        <h2>Сабак жөнүндө</h2>
+        <p>
+          Бул сабак веб-технологияларды окууга багытталган.Сабакта 35 студент
+          бар.Сабак жума күнү саат 18:30да онлайн Google meet аркылуу өтүлөт.
+        </p>
+        <img src="img3 (1).jpg" alt="Сабак тууралуу сүрөт" id="lessonImage" />
+      </section>
+
+      <section>
+        <h2>Жогорку окуучулардын тизмеси</h2>
+        <button id="showStudents">Окуучулардын тизмесин көрсөтүү</button>
+        <ul id="studentsList" style="display: none">
+          <li>Жасмина Сабырбекова</li>
+          <li>Алина Акбаралиева</li>
+          <li>Сейтек Аскарбеков</li>
+          <li>Нурсултон Тухтаназаров</li>
+          <li>Арлен Сапаралиев</li>
+          <li>Элдос Уланбеков</li>
+          <li>Чынгыз Алмамбетов</li>
+          <li>Ислам Женишбеков</li>
+          <li>Улансын Токторбай уулу</li>
+          <li>Бактияр Жакшылыков</li>
+          <li>Элдос 2</li>
+          <li>Эркебулан Дуйшеналиев</li>
+          <li>Нуркыз Каныбекова</li>
+          <li>Айгерим Бекболотова</li>
+          <li>Жоомарт Суранбаев</li>
+          <li>Айдар Токонов</li>
+          <li>Нуриддин Суюмбаев</li>
+          <li>Айзирек Акжолова</li>
+        </ul>
+      </section>
+
+      <section>
+        <header>
+          <header>
+            <h1>Сабакта жана сынакта көп колдонулуучу сөздөр</h1>
+          </header>
+          <main>
+            <button onclick="showWord()">Сөздү көрсөтүү</button>
+            <p id="wordOutput">Бул жерге сөз чыгат</p>
+        
+            <script>
+              // Список слов
+              const words = [
+                "Балдар кодуңар окшош болсо эки студентке тең 0 коём", "Йокламага жазылгыла",  "Балдар финал мындан кыйын болот", "Балдар эч кимди унутпадымбы?", "Балдар барсыңарбы"
+              ];
+        
+              // Функция для показа случайного слова
+              function showWord() {
+                const randomIndex = Math.floor(Math.random() * words.length);
+                document.getElementById("wordOutput").innerText = words[randomIndex];
+              }
+            </script>
+          </main>
+
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color: #ffffff;
+              color: #333;
+            }
+            header {
+              background: #007acc;
+              color: white;
+              text-align: center;
+              padding: 20px;
+            }
+            main {
+              padding: 20px;
+            }
+            section {
+              margin-bottom: 20px;
+            }
+            button {
+              padding: 10px 15px;
+              background-color: #007acc;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              margin-top: 10px;
+            }
+            button:hover {
+              background-color: #005f99;
+            }
+            ul {
+              list-style: none;
+              padding: 0;
+              margin: 15px 0 0;
+            }
+            li {
+              background-color: #1a1c1d;
+              margin: 5px 0;
+              padding: 10px;
+              border: 1px solid #b3e0ff;
+              border-radius: 5px;
+            }
+            input {
+              width: 100%;
+              max-width: 400px;
+              padding: 8px;
+              margin-bottom: 10px;
+              border: 1px solid #151414;
+              border-radius: 5px;
+            }
+          </style>
+        </head>
+        <body>
+          <main>
+            <section>
+              <h2 style="color: #007acc;">Сабакта жооп берген студенттер</h2>
+              <label for="studentName" style="font-weight: bold;">Сабакта жооп берген студенттин ФИОсу:</label>
+              <input
+                type="text"
+                id="studentName"
+                placeholder="ФИО жазгыла"
+              />
+              <button onclick="addRespondingStudent()">Жооп берген студентти кошуу</button>
+              <ul id="respondingStudentsList">
+                <!-- Список отвечавших студентов -->
+              </ul>
+            </section>
+          </main>
+          <footer>
+            <p>&copy; 2024 Веб-технология</p>
+          </footer>
+          <script>
+            function addRespondingStudent() {
+              const studentName = document.getElementById("studentName").value;
+      
+              if (studentName.trim() !== "") {
+                // Создаем новый элемент списка
+                const li = document.createElement("li");
+                li.textContent = studentName;
+      
+                // Добавляем элемент в список
+                document.getElementById("respondingStudentsList").appendChild(li);
+      
+                // Очищаем поле ввода
+                document.getElementById("studentName").value = "";
+              }
+            }
+          </script>
+          <style>
+            /* Добавление фона между секциями */
+            .background-section {
+              background-image: url('background.jpeg'); /* Укажите путь к вашему изображению */
+              background-size: cover; /* Фон будет покрывать весь блок */
+              background-position: center; /* Центрирование изображения */
+              padding: 20px;
+              margin-bottom: 20px;
+              color: white; /* Текст будет белым для лучшего контраста */
+            }
+          </style>
+       
+      </section>
+    </main>
+
+  
+
+    <script src="script.js"></script>
+  </body>
+</html>
